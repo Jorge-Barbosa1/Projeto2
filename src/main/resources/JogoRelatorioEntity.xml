@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="Entity.JogoRelatorioEntity">
+        <table name="jogo_relatorio" schema="public" catalog="projeto"/>
+        <id-class class="Entity.JogoRelatorioEntityPK"/>
+        <attributes>
+            <id name="idJogo">
+                <column name="id_jogo"/>
+            </id>
+            <id name="idRelatorio">
+                <column name="id_relatorio"/>
+            </id>
+            <basic name="resultadoCasa">
+                <column name="resultado_casa"/>
+            </basic>
+            <basic name="resultadoVisitante">
+                <column name="resultado_visitante"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

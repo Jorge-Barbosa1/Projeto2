@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="Entity.CampoEntity">
+        <table name="campo" schema="public" catalog="projeto"/>
+        <attributes>
+            <id name="idCampo">
+                <column name="id_campo"/>
+            </id>
+            <basic name="nome">
+                <column name="nome"/>
+            </basic>
+            <basic name="rua">
+                <column name="rua"/>
+            </basic>
+            <basic name="freguesia">
+                <column name="freguesia"/>
+            </basic>
+            <basic name="codpostal">
+                <column name="codpostal"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="Entity.ContactosEntity">
+        <table name="contactos" schema="public" catalog="projeto"/>
+        <attributes>
+            <id name="idContactos">
+                <column name="id_contactos"/>
+            </id>
+            <basic name="email">
+                <column name="email"/>
+            </basic>
+            <basic name="telefone">
+                <column name="telefone"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

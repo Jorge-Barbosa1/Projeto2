@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="Entity.RelatorioEntity">
+        <table name="relatorio" schema="public" catalog="projeto"/>
+        <attributes>
+            <id name="idRelatorio">
+                <column name="id_relatorio"/>
+            </id>
+            <basic name="descricao">
+                <column name="descricao"/>
+            </basic>
+            <basic name="idArbitragem">
+                <column name="id_arbitragem"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

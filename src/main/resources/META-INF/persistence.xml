@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+    <persistence-unit name="default">
+        <mapping-file>AdministradorEntity.xml</mapping-file>
+        <mapping-file>ArbitragemEntity.xml</mapping-file>
+        <mapping-file>ArbitroEntity.xml</mapping-file>
+        <mapping-file>CampoEntity.xml</mapping-file>
+        <mapping-file>ContactosEntity.xml</mapping-file>
+        <mapping-file>EquipaEntity.xml</mapping-file>
+        <mapping-file>FavoritosEntity.xml</mapping-file>
+        <mapping-file>JogadorEntity.xml</mapping-file>
+        <mapping-file>JogoEntity.xml</mapping-file>
+        <mapping-file>JogoRelatorioEntity.xml</mapping-file>
+        <mapping-file>RelatorioEntity.xml</mapping-file>
+        <mapping-file>ReporterEntity.xml</mapping-file>
+        <mapping-file>ReporterFavoritosEntity.xml</mapping-file>
+
+        <class>Entity.AdministradorEntity</class>
+        <class>Entity.ArbitragemEntity</class>
+        <class>Entity.ArbitroEntity</class>
+        <class>Entity.CampoEntity</class>
+        <class>Entity.ContactosEntity</class>
+        <class>Entity.EquipaEntity</class>
+        <class>Entity.FavoritosEntity</class>
+        <class>Entity.JogadorEntity</class>
+        <class>Entity.JogoEntity</class>
+        <class>Entity.JogoRelatorioEntity</class>
+        <class>Entity.RelatorioEntity</class>
+        <class>Entity.ReporterEntity</class>
+        <class>Entity.ReporterFavoritosEntity</class>
+
+        <!-- Configurações de conexão -->
+        <properties>
+            <!-- URL de conexão -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/projeto"/>
+
+            <!-- Usuário e senha -->
+            <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+            <property name="jakarta.persistence.jdbc.password" value="basedados"/>
+
+            <!-- Driver JDBC -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+
+            <!-- Dialeto do Hibernate para PostgreSQL -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+        </properties>
+
+
+    </persistence-unit>
+
+</persistence>
