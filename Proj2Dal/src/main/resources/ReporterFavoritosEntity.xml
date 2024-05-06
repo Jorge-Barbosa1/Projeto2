@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.example.proj2dal.Entity.ReporterFavoritosEntity">
+        <table name="reporter_favoritos" schema="public" catalog="projeto"/>
+        <id-class class="com.example.proj2dal.Entity.ReporterFavoritosEntityPK"/>
+        <attributes>
+            <id name="idReporter">
+                <column name="id_reporter"/>
+            </id>
+            <id name="idFavoritos">
+                <column name="id_favoritos"/>
+            </id>
+        </attributes>
+    </entity>
+</entity-mappings>

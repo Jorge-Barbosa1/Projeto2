@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+    <persistence-unit name="default">
+        <mapping-file>AdministradorEntity.xml</mapping-file>
+        <mapping-file>ArbitragemEntity.xml</mapping-file>
+        <mapping-file>ArbitroEntity.xml</mapping-file>
+        <mapping-file>CampoEntity.xml</mapping-file>
+        <mapping-file>EquipaEntity.xml</mapping-file>
+        <mapping-file>FavoritosEntity.xml</mapping-file>
+        <mapping-file>JogadorEntity.xml</mapping-file>
+        <mapping-file>JogoEntity.xml</mapping-file>
+        <mapping-file>JogoRelatorioEntity.xml</mapping-file>
+        <mapping-file>RelatorioEntity.xml</mapping-file>
+        <mapping-file>ReporterEntity.xml</mapping-file>
+        <mapping-file>ReporterFavoritosEntity.xml</mapping-file>
+        <mapping-file>UtilizadorEntity.xml</mapping-file>
+
+
+        <!-- Configurações de conexão -->
+        <properties>
+            <!-- URL de conexão -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/projeto"/>
+
+            <!-- Usuário e senha -->
+            <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+            <property name="jakarta.persistence.jdbc.password" value="basedados"/>
+
+            <!-- Driver JDBC -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+
+            <!-- Dialeto do Hibernate para PostgreSQL -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="toplink.jdbc.url" value="jdbc:postgresql://localhost:5432/projeto"/>
+            <property name="toplink.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="toplink.jdbc.user" value="postgres"/>
+            <property name="toplink.jdbc.password" value="basedados"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/projeto"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.username" value="postgres"/>
+            <property name="hibernate.connection.password" value="basedados"/>
+            <property name="openjpa.ConnectionURL" value="jdbc:postgresql://localhost:5432/projeto"/>
+            <property name="openjpa.ConnectionDriverName" value="org.postgresql.Driver"/>
+            <property name="openjpa.ConnectionUserName" value="postgres"/>
+            <property name="openjpa.ConnectionPassword" value="basedados"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:postgresql://localhost:5432/projeto"/>
+            <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="eclipselink.jdbc.user" value="postgres"/>
+            <property name="eclipselink.jdbc.password" value="basedados"/>
+        </properties>
+
+    </persistence-unit>
+    <persistence-unit name="persistenceUnit">
+        <class>com.example.proj2dal.Entity.AdministradorEntity</class>
+        <class>com.example.proj2dal.Entity.ArbitragemEntity</class>
+        <class>com.example.proj2dal.Entity.ArbitroEntity</class>
+        <class>com.example.proj2dal.Entity.CampoEntity</class>
+        <class>com.example.proj2dal.Entity.EquipaEntity</class>
+        <class>com.example.proj2dal.Entity.FavoritosEntity</class>
+        <class>com.example.proj2dal.Entity.JogadorEntity</class>
+        <class>com.example.proj2dal.Entity.JogoEntity</class>
+        <class>com.example.proj2dal.Entity.JogoRelatorioEntity</class>
+    </persistence-unit>
+
+</persistence>
