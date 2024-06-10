@@ -14,6 +14,11 @@
     <version>1.0-SNAPSHOT</version>
     <name>Proj2-Dal</name>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.version>5.10.0</junit.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.hibernate.orm</groupId>
@@ -26,18 +31,12 @@
             <version>3.0.2</version>
         </dependency>
 
-
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.7.3</version>
         </dependency>
-        <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>Proj2UI</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
+
 
     </dependencies>
     <build>

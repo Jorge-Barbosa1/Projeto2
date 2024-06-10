@@ -31,9 +31,6 @@ public class UtilizadorEntity {
     private Collection<ReporterEntity> reportersByIdUser;
 
 
-    //User is an Admin
-    private  boolean isAdmin;
-
     public String getEmail() {
         return email;
     }
@@ -90,11 +87,4 @@ public class UtilizadorEntity {
         this.reportersByIdUser = reportersByIdUser;
     }
 
-    public boolean isAdmin(){
-        return isAdmin();
-    }
-
-    public void setAdmin(boolean admin){
-        isAdmin = admin;
-    }
 }

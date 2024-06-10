@@ -39,7 +39,7 @@ public class DBConnection {
                 user.setNome(resultSet.getString("nome"));
                 user.setEmail(resultSet.getString("email"));
                 user.setUsername(resultSet.getString("username"));
-                user.setAdmin(resultSet.getBoolean("isAdmin"));//Vai dar erro
+
 
             }
 

@@ -1,6 +1,7 @@
 package com.example.proj2ui.Controllers;
 
 import com.example.proj2dal.BLL.DBConnection;
+import com.example.proj2dal.BLL.UserBLL;
 import com.example.proj2dal.Entity.UtilizadorEntity;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,22 +20,19 @@ public class LoginController {
     PasswordField passwordPwd;
 
     private DBConnection dbConnection;
-    public void initialize() {
-        dbConnection = new DBConnection();
-    }
+
     @FXML
     void login(ActionEvent event){
-        initialize();
+
 
         String username= usernameTxt.getText();
         String password = passwordPwd.getText();
 
-        UtilizadorEntity user = dbConnection.getAuthenticatedUser(username,password);
+        UtilizadorEntity loginSuccesfull = UserBLL.logUser(username,password);
 
-        if(user!= null){
-            if(user.isAdmin()){
+        if(loginSuccesfull != null){
+            System.out.println("Logged In");
 
-            }
         }
 
     }
