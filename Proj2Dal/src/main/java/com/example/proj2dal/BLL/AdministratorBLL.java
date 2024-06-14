@@ -1,6 +1,7 @@
 package com.example.proj2dal.BLL;
 
 import com.example.proj2dal.Entity.AdministradorEntity;
+import com.example.proj2dal.Entity.UtilizadorEntity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 
@@ -8,7 +9,7 @@ import java.util.*;
 
 public class AdministratorBLL {
 
-    public static void createAdmin(AdministradorEntity adm){
+    public static void createAdmin(UtilizadorEntity adm){
         EntityManager em = DBConnection.getEntityManager();
         em.getTransaction().begin();
         em.persist(adm);

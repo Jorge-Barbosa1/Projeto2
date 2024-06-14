@@ -1,5 +1,6 @@
 package com.example.proj2ui.Controllers;
 
+import com.example.proj2dal.BLL.AdministratorBLL;
 import com.example.proj2dal.BLL.ReporterBLL;
 import com.example.proj2dal.BLL.UserBLL;
 import com.example.proj2dal.Entity.UtilizadorEntity;
@@ -16,9 +17,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.math.BigInteger;
 
-public class CreateAccountController {
+public class CreateAdminController {
     @FXML
-    public Button createButton;
+    public Button createAdminButton;
     @FXML
     public Button backButton;
     @FXML
@@ -49,18 +50,31 @@ public class CreateAccountController {
         user.setEmail(email);
         user.setUsername(username);
         user.setPassword(password);
+        user.setIsAdmin(1);
         user.setIdUser(id);
 
         // Criar o utilizador na tabela User e na Tabela Reporter
         try {
             UserBLL.createUser(user);
-            ReporterBLL.create(user);
+            AdministratorBLL.createAdmin(user);
             showAlert(Alert.AlertType.INFORMATION,"Conta Criada", "A conta foi criada com sucesso!");
         } catch (Exception e) {
             e.printStackTrace();
             showAlert(Alert.AlertType.ERROR,"Erro", "Não foi possível criar a conta!");
         }
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/proj2ui/AdminMenu.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) backButton.getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Create Account");
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert(Alert.AlertType.ERROR, "Erro", "Não foi possível carregar a página de criação de conta.");
+        }
     }
+
 
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
@@ -73,7 +87,7 @@ public class CreateAccountController {
     @FXML
     void backScene(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/proj2ui/LoginPage.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/proj2ui/AdminMenu.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = (Stage) backButton.getScene().getWindow();
             stage.setScene(scene);

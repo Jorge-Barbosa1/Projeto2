@@ -17,6 +17,6 @@
    <Label layoutX="105.0" layoutY="214.0" text="Password" />
    <TextField fx:id="usernameTxt" layoutX="187.0" layoutY="179.0" prefHeight="26.0" prefWidth="226.0" />
    <PasswordField fx:id="passwordPwd" layoutX="187.0" layoutY="210.0" prefHeight="26.0" prefWidth="226.0" />
-   <Button fx:id="createAccountButton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" text="Criar Conta" />
+   <Button fx:id="createAccountButton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" onAction="#createAccount" text="Criar Conta" />
    <Button fx:id="entryButton" layoutX="276.0" layoutY="265.0" mnemonicParsing="false" onAction="#login" text="Entrar" />
 </AnchorPane>

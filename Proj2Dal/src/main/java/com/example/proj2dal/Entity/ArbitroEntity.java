@@ -3,6 +3,7 @@ package com.example.proj2dal.Entity;
 import jakarta.persistence.*;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -74,4 +75,5 @@ public class ArbitroEntity {
     public void setArbitragemsByIdArbitro_1(Collection<ArbitragemEntity> arbitragemsByIdArbitro_1) {
         this.arbitragemsByIdArbitro_1 = arbitragemsByIdArbitro_1;
     }
+
 }

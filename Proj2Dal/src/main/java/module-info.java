@@ -4,4 +4,6 @@ module com.example.proj2dal {
 
     exports com.example.proj2dal.BLL;
     exports com.example.proj2dal.Entity;
+
+    opens com.example.proj2dal.Entity to org.hibernate.orm.core;
 }

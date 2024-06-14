@@ -1,7 +1,6 @@
 package com.example.proj2dal.Entity;
 
 import jakarta.persistence.*;
-
 import java.math.BigInteger;
 import java.util.Collection;
 
@@ -23,14 +22,19 @@ public class UtilizadorEntity {
     @Basic
     @Column(name = "password")
     private String password;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
     private int idUser;
     @OneToMany(mappedBy = "utilizadorByIdUser")
     private Collection<ReporterEntity> reportersByIdUser;
 
+    @Basic
+    @Column(name = "isAdmin")
+    private int isAdmin;
 
+    // Getters and Setters
     public String getEmail() {
         return email;
     }
@@ -79,6 +83,14 @@ public class UtilizadorEntity {
         this.idUser = idUser;
     }
 
+    public int getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
     public Collection<ReporterEntity> getReportersByIdUser() {
         return reportersByIdUser;
     }
@@ -86,5 +98,4 @@ public class UtilizadorEntity {
     public void setReportersByIdUser(Collection<ReporterEntity> reportersByIdUser) {
         this.reportersByIdUser = reportersByIdUser;
     }
-
 }

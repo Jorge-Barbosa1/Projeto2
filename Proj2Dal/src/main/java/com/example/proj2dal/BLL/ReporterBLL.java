@@ -1,12 +1,13 @@
 package com.example.proj2dal.BLL;
 
 import com.example.proj2dal.Entity.ReporterEntity;
+import com.example.proj2dal.Entity.UtilizadorEntity;
 import jakarta.persistence.EntityManager;
 
 import java.util.*;
 public class ReporterBLL {
 
-    public static void create (ReporterEntity rep){
+    public static void create (UtilizadorEntity rep){
         EntityManager em = DBConnection.getEntityManager();
         em.getTransaction().begin();
         em.persist(rep);

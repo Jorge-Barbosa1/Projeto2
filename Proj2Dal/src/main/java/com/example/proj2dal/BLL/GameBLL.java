@@ -29,8 +29,5 @@ public class GameBLL {
         return DBConnection.getEntityManager().createQuery("from JogoEntity ").getResultList();
     }
 
-    //Não sei se faz sentido
-    public static List listGameByTeam(String name){
-        return  DBConnection.getEntityManager().createQuery("from JogoEntity where equipa1 like ?1 ").setParameter(1,name).getResultList();
-    }
+
 }

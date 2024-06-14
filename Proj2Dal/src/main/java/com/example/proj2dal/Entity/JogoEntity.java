@@ -30,6 +30,9 @@ public class JogoEntity {
     @Column(name = "id_equipa", nullable = true)
     private Integer idEquipa;
     @Basic
+    @Column(name = "id_equipa2", nullable = true)
+    private Integer idEquipa2;
+    @Basic
     @Column(name = "id_arbitragem", nullable = true)
     private Integer idArbitragem;
     @ManyToOne
@@ -86,6 +89,13 @@ public class JogoEntity {
 
     public void setIdEquipa(Integer idEquipa) {
         this.idEquipa = idEquipa;
+    }
+    public Integer getIdEquipa2() {
+        return idEquipa2;
+    }
+
+    public void setIdEquipa2(Integer idEquipa2) {
+        this.idEquipa2 = idEquipa2;
     }
 
     public Integer getIdArbitragem() {
