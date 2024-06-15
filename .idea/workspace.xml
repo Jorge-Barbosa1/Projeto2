@@ -10,62 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9bfab248-555c-4304-bfdd-a588525cc4df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/BDProjeto_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BLL/AdministratorBLL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BLL/CampBLL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BLL/ContactsBLL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BLL/DBConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BLL/FavoritesBLL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BLL/GameBLL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BLL/PlayerBLL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BLL/RefTeamBLL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BLL/RefereeBLL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BLL/RelatoryBLL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BLL/ReporterBLL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BLL/TeamBLL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/AdministradorEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/ArbitragemEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/ArbitroEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/CampoEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/ContactosEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/EquipaEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/FavoritosEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/JogadorEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/JogoEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/JogoRelatorioEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/JogoRelatorioEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/RelatorioEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/ReporterEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/ReporterFavoritosEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/ReporterFavoritosEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AdministradorEntity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ArbitragemEntity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ArbitroEntity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/CampoEntity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ContactosEntity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/EquipaEntity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FavoritosEntity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/JogadorEntity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/JogoEntity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/JogoRelatorioEntity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RelatorioEntity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ReporterEntity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ReporterFavoritosEntity.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9662a269-602a-45d2-b96f-6fe459af2dda.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9662a269-602a-45d2-b96f-6fe459af2dda.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BDProjeto_jar/BDProjeto.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BDProjeto_jar/BDProjeto.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +28,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -108,10 +58,10 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/jorge/OneDrive/Ambiente de Trabalho/Engenharia Informatica/2ºAno/2º Semestre/Projeto 2/BDProjeto/src/main/java&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jorge/OneDrive/Ambiente de Trabalho/Engenharia Informatica/2ºAno/2º Semestre/Projeto 2/BDProjeto/out/artifacts/BDProjeto_jar/BDProjeto.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jorge/OneDrive/Ambiente de Trabalho/Engenharia Informatica/2ºAno/2º Semestre/Projeto 2/Proj2&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -166,6 +116,7 @@
       <updated>1714217514180</updated>
       <workItem from="1714217515219" duration="5458000" />
       <workItem from="1714227537845" duration="895000" />
+      <workItem from="1718448588454" duration="373000" />
     </task>
     <servers />
   </component>
