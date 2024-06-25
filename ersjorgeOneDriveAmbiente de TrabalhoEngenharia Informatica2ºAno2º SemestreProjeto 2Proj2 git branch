@@ -1,0 +1,56 @@
+[33mcommit ccab254fcebe855684945f27c90cad988f02049e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Jorge <jorge.b@ipvc.pt>
+Date:   Fri Jun 14 13:27:45 2024 +0100
+
+    C
+
+.idea/gradle.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/misc.xml
+Proj2Dal/src/main/java/com/example/proj2dal/BLL/AdministratorBLL.java
+Proj2Dal/src/main/java/com/example/proj2dal/BLL/CampBLL.java
+Proj2Dal/src/main/java/com/example/proj2dal/BLL/GameBLL.java
+Proj2Dal/src/main/java/com/example/proj2dal/BLL/PlayerBLL.java
+Proj2Dal/src/main/java/com/example/proj2dal/BLL/RefereeBLL.java
+Proj2Dal/src/main/java/com/example/proj2dal/BLL/ReporterBLL.java
+Proj2Dal/src/main/java/com/example/proj2dal/BLL/TeamBLL.java
+Proj2Dal/src/main/java/com/example/proj2dal/BLL/UserBLL.java
+Proj2Dal/src/main/java/com/example/proj2dal/Entity/ArbitroEntity.java
+Proj2Dal/src/main/java/com/example/proj2dal/Entity/JogoEntity.java
+Proj2Dal/src/main/java/com/example/proj2dal/Entity/UtilizadorEntity.java
+Proj2Dal/src/main/java/module-info.java
+Proj2UI/src/main/java/com/example/proj2ui/Controllers/AdminMenuController.java
+Proj2UI/src/main/java/com/example/proj2ui/Controllers/CreateAccountController.java
+Proj2UI/src/main/java/com/example/proj2ui/Controllers/CreateAdminController.java
+Proj2UI/src/main/java/com/example/proj2ui/Controllers/CreateCampController.java
+Proj2UI/src/main/java/com/example/proj2ui/Controllers/CreateGameController.java
+Proj2UI/src/main/java/com/example/proj2ui/Controllers/CreatePlayerController.java
+Proj2UI/src/main/java/com/example/proj2ui/Controllers/CreateRefTeamController.java
+Proj2UI/src/main/java/com/example/proj2ui/Controllers/CreateRefereeController.java
+Proj2UI/src/main/java/com/example/proj2ui/Controllers/CreateTeamController.java
+Proj2UI/src/main/java/com/example/proj2ui/Controllers/LoginController.java
+Proj2UI/src/main/java/com/example/proj2ui/Main.java
+Proj2UI/src/main/java/com/example/proj2ui/Managers/TypeUsers.java
+Proj2UI/src/main/java/com/example/proj2ui/Managers/UserManager.java
+Proj2UI/src/main/resources/com/example/proj2ui/AdminMenu.fxml
+Proj2UI/src/main/resources/com/example/proj2ui/CreateAccount.fxml
+Proj2UI/src/main/resources/com/example/proj2ui/CreateAdmin.fxml
+Proj2UI/src/main/resources/com/example/proj2ui/CreateCamp.fxml
+Proj2UI/src/main/resources/com/example/proj2ui/CreateGame.fxml
+Proj2UI/src/main/resources/com/example/proj2ui/CreatePlayer.fxml
+Proj2UI/src/main/resources/com/example/proj2ui/CreateRefTeam.fxml
+Proj2UI/src/main/resources/com/example/proj2ui/CreateReferee.fxml
+Proj2UI/src/main/resources/com/example/proj2ui/CreateTeam.fxml
+Proj2UI/src/main/resources/com/example/proj2ui/LoginPage.fxml
+Proj2Web/.gitignore
+Proj2Web/build.gradle
+Proj2Web/gradle/wrapper/gradle-wrapper.jar
+Proj2Web/gradle/wrapper/gradle-wrapper.properties
+Proj2Web/gradlew
+Proj2Web/gradlew.bat
+Proj2Web/settings.gradle
+Proj2Web/src/main/java/org/example/proj2web/Proj2WebApplication.java
+Proj2Web/src/main/resources/application.properties
+Proj2Web/src/main/resources/templates/Login.html
+Proj2Web/src/main/resources/templates/Register.html
+Proj2Web/src/test/java/org/example/proj2web/Proj2WebApplicationTests.java

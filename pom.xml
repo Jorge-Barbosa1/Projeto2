@@ -11,5 +11,6 @@
     <module>Proj2-core</module>
     <module>Proj2Dal</module>
     <module>Proj2UI</module>
+    <module>Proj2Web</module>
   </modules>
 </project>

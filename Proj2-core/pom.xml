@@ -4,11 +4,12 @@
     <groupId>com.Proj2</groupId>
     <artifactId>Proj2</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging> <!-- Corrigido para 'pom' -->
+    <packaging>pom</packaging>
     <name>Archetype - Proj2-core</name>
     <url>https://maven.apache.org</url>
     <modules>
         <module>../Proj2UI</module>
         <module>../Proj2UI</module>
+        <module>../Proj2WebApp</module>
     </modules>
 </project>
