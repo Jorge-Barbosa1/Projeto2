@@ -1,13 +1,18 @@
 package com.example.proj2dal.BLL;
 
 import com.example.proj2dal.Entity.ArbitragemEntity;
+<<<<<<< HEAD
 import com.example.proj2dal.Entity.ArbitroEntity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
+=======
+import jakarta.persistence.EntityManager;
+>>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
 
 import java.util.List;
 
 public class RefTeamBLL {
+<<<<<<< HEAD
     public static void createRefTeam(ArbitroEntity ref1, ArbitroEntity ref2, ArbitroEntity ref3) {
         EntityManager em = null;
         try {
@@ -46,6 +51,14 @@ public class RefTeamBLL {
                 em.close();
             }
         }
+=======
+
+    public static void createRefTeam(ArbitragemEntity ref){
+        EntityManager em = DBConnection.getEntityManager();
+        em.getTransaction().begin();
+        em.persist(ref);
+        em.getTransaction().commit();
+>>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
     }
 
     public static void deleteRefTeam(ArbitragemEntity ref){
@@ -62,6 +75,7 @@ public class RefTeamBLL {
     public static List listRefTeam(){
         return DBConnection.getEntityManager().createQuery("from ArbitragemEntity ").getResultList();
     }
+<<<<<<< HEAD
     /* Testar a inserção de uma equipa de arbitragem
     public static void testInsertion() {
         EntityManager em = DBConnection.getEntityManager();
@@ -109,5 +123,8 @@ public class RefTeamBLL {
             return 1; // Retorna 1 em caso de erro
         }
     }
+=======
+
+>>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
 
 }

@@ -19,8 +19,13 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+<<<<<<< HEAD
 public class CreatePlayerController implements Initializable {
     @FXML
+=======
+public class CreatePlayerController{ //implements Initializable {
+    /*@FXML
+>>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
     Button goBackButton;
     @FXML
     Button createButton;
@@ -106,4 +111,9 @@ public class CreatePlayerController implements Initializable {
             }
         });
     }
+<<<<<<< HEAD
+=======
+
+     */
+>>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
 }

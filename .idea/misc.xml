@@ -8,7 +8,10 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Proj2Web/pom.xml" />
+=======
+>>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
       </list>
     </option>
   </component>

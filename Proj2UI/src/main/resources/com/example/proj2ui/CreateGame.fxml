@@ -8,6 +8,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proj2ui.Controllers.CreateGameController">
    <children>
       <Label layoutX="235.0" layoutY="51.0" text="Criar Jogo">
@@ -16,7 +20,11 @@
          </font>
       </Label>
       <Button fx:id="goBackButton" layoutX="45.0" layoutY="371.0" mnemonicParsing="false" onAction="#backPage" text="Voltar" />
+<<<<<<< HEAD
       <Button fx:id="createButton" layoutX="264.0" layoutY="308.0" mnemonicParsing="false" onAction="#createGame" prefHeight="25.0" prefWidth="79.0" text="Criar">
+=======
+      <Button fx:id="createButton" layoutX="264.0" layoutY="308.0" mnemonicParsing="false" onAction="#createPlayer" prefHeight="25.0" prefWidth="79.0" text="Criar">
+>>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
          <font>
             <Font size="15.0" />
          </font>
@@ -29,9 +37,16 @@
       <Label layoutX="312.0" layoutY="213.0" text="Arbitragem:" />
       <DatePicker fx:id="datePicker" layoutX="118.0" layoutY="125.0" prefHeight="25.0" prefWidth="169.0" />
       <TextField fx:id="timeTxtField" layoutX="148.0" layoutY="165.0" prefHeight="25.0" prefWidth="139.0" />
+<<<<<<< HEAD
       <ComboBox fx:id="camp" layoutX="118.0" layoutY="209.0" prefHeight="25.0" prefWidth="169.0" />
       <ComboBox fx:id="team1" layoutX="376.0" layoutY="125.0" prefHeight="25.0" prefWidth="169.0" />
       <ComboBox fx:id="team2" layoutX="376.0" layoutY="165.0" prefHeight="25.0" prefWidth="169.0" />
       <ComboBox fx:id="refTeam" layoutX="376.0" layoutY="209.0" prefHeight="25.0" prefWidth="169.0" />
+=======
+      <ComboBox layoutX="118.0" layoutY="209.0" prefHeight="25.0" prefWidth="169.0" />
+      <ComboBox layoutX="376.0" layoutY="125.0" prefHeight="25.0" prefWidth="169.0" />
+      <ComboBox layoutX="376.0" layoutY="165.0" prefHeight="25.0" prefWidth="169.0" />
+      <ComboBox layoutX="376.0" layoutY="209.0" prefHeight="25.0" prefWidth="169.0" />
+>>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
    </children>
 </AnchorPane>

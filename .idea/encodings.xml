@@ -7,7 +7,10 @@
     <file url="file://$PROJECT_DIR$/Proj2Dal/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Proj2UI/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Proj2UI/src/main/resources" charset="UTF-8" />
+<<<<<<< HEAD
     <file url="file://$PROJECT_DIR$/Proj2Web/src/main/java" charset="UTF-8" />
+=======
+>>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>

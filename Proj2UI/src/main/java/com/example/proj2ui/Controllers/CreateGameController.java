@@ -1,5 +1,6 @@
 package com.example.proj2ui.Controllers;
 
+<<<<<<< HEAD
 import com.example.proj2dal.Entity.JogoEntity;
 import com.example.proj2dal.BLL.CampBLL;
 import com.example.proj2dal.BLL.GameBLL;
@@ -186,4 +187,7 @@ public class CreateGameController implements Initializable {
         alert.setContentText(message);
         alert.showAndWait();
     }
+=======
+public class CreateGameController {
+>>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
 }
