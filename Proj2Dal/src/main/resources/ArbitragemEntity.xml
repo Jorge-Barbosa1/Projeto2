@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.example.proj2dal.Entity.ArbitragemEntity">
+        <table name="arbitragem" schema="public" catalog="projeto"/>
+        <attributes>
+            <id name="idArbitragem">
+                <column name="id_arbitragem"/>
+            </id>
+            <basic name="idArbitro1">
+                <column name="id_arbitro1"/>
+            </basic>
+            <basic name="idArbitro2">
+                <column name="id_arbitro2"/>
+            </basic>
+            <basic name="idArbitro3">
+                <column name="id_arbitro3"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

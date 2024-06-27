@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.example.proj2dal.Entity.JogoEntity">
+        <table name="jogo" schema="public" catalog="projeto"/>
+        <attributes>
+            <id name="idJogo">
+                <column name="id_jogo"/>
+            </id>
+            <basic name="idAdministrador">
+                <column name="id_administrador"/>
+            </basic>
+            <basic name="data">
+                <column name="data"/>
+            </basic>
+            <basic name="hora">
+                <column name="hora"/>
+            </basic>
+            <basic name="idCampo">
+                <column name="id_campo"/>
+            </basic>
+            <basic name="idEquipa">
+                <column name="id_equipa"/>
+            </basic>
+            <basic name="idArbitragem">
+                <column name="id_arbitragem"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

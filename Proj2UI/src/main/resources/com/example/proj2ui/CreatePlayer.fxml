@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proj2ui.Controllers.CreatePlayerController">
+   <children>
+      <Label layoutX="214.0" layoutY="53.0" text="Criar Jogador">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <Button fx:id="goBackButton" layoutX="35.0" layoutY="361.0" mnemonicParsing="false" onAction="#backPage" text="Voltar" />
+      <Label layoutX="236.0" layoutY="140.0" text="Nome:" />
+      <TextField fx:id="nameTxtField" layoutX="293.0" layoutY="136.0" />
+      <Button fx:id="createButton" layoutX="254.0" layoutY="298.0" mnemonicParsing="false" onAction="#createPlayer" prefHeight="25.0" prefWidth="79.0" text="Criar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="teamComboBox" layoutX="293.0" layoutY="188.0" prefWidth="150.0" />
+      <Label layoutX="236.0" layoutY="192.0" text="Equipa:" />
+   </children>
+</AnchorPane>
