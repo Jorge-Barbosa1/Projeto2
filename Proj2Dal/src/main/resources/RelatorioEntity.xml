@@ -11,8 +11,8 @@
             <basic name="descricao">
                 <column name="descricao"/>
             </basic>
-            <basic name="idArbitragem">
-                <column name="id_arbitragem"/>
+            <basic name="idJogo">
+                <column name="id_Jogo"/>
             </basic>
         </attributes>
     </entity>

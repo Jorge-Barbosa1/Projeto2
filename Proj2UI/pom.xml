@@ -42,7 +42,7 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.Proj2</groupId>
+      <groupId>com.Proj2 </groupId>
       <artifactId>Proj2-core</artifactId>
       <version>1.0-SNAPSHOT</version>
       <scope>compile</scope>

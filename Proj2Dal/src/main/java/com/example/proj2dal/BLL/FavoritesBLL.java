@@ -32,4 +32,15 @@ public class FavoritesBLL {
     public static List listFavsName(String equipa) {
         return DBConnection.getEntityManager().createQuery("from FavoritosEntity where equipa like ?1 ").setParameter(1, equipa).getResultList();
     }
+
+    public static List<FavoritosEntity> listFavsByUser(int userId) {
+        EntityManager em = DBConnection.getEntityManager();
+        try {
+            return em.createQuery("SELECT f FROM FavoritosEntity f WHERE f.userId = :id", FavoritosEntity.class)
+                    .setParameter("id", userId)
+                    .getResultList();
+        } finally {
+            em.close();
+        }
+    }
 }

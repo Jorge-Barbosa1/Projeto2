@@ -19,8 +19,18 @@ public class FavoritosEntity {
     @Basic
     @Column(name = "jogadores", nullable = false, length = 100)
     private String jogadores;
-    @OneToMany(mappedBy = "favoritosByIdFavoritos")
-    private Collection<ReporterFavoritosEntity> reporterFavoritosByIdFavoritos;
+
+    @Basic
+    @Column(name = "user_id")
+    private Integer userId;
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
     public BigInteger getIdFavoritos() {
         return idFavoritos;
@@ -46,6 +56,7 @@ public class FavoritosEntity {
         this.jogadores = jogadores;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -59,11 +70,4 @@ public class FavoritosEntity {
         return Objects.hash(idFavoritos, equipa, jogadores);
     }
 
-    public Collection<ReporterFavoritosEntity> getReporterFavoritosByIdFavoritos() {
-        return reporterFavoritosByIdFavoritos;
-    }
-
-    public void setReporterFavoritosByIdFavoritos(Collection<ReporterFavoritosEntity> reporterFavoritosByIdFavoritos) {
-        this.reporterFavoritosByIdFavoritos = reporterFavoritosByIdFavoritos;
-    }
 }

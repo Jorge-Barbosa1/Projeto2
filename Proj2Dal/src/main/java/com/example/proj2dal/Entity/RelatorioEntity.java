@@ -16,8 +16,8 @@ public class RelatorioEntity {
     @Column(name = "descricao", nullable = false, length = 100)
     private String descricao;
     @Basic
-    @Column(name = "id_arbitragem", nullable = true)
-    private Integer idArbitragem;
+    @Column(name = "id_jogo", nullable = true)
+    private BigInteger idJogo;
     @OneToMany(mappedBy = "relatorioByIdRelatorio")
     private Collection<JogoRelatorioEntity> jogoRelatoriosByIdRelatorio;
 
@@ -37,21 +37,11 @@ public class RelatorioEntity {
         this.descricao = descricao;
     }
 
-    public Integer getIdArbitragem() {
-        return idArbitragem;
+    public BigInteger getIdJogo() {
+        return idJogo;
     }
 
-    public void setIdArbitragem(Integer idArbitragem) {
-        this.idArbitragem = idArbitragem;
+    public void setIdJogo(BigInteger idJogo) {
+        this.idJogo = idJogo;
     }
-
-    public Collection<JogoRelatorioEntity> getJogoRelatoriosByIdRelatorio() {
-        return jogoRelatoriosByIdRelatorio;
-    }
-
-    public void setJogoRelatoriosByIdRelatorio(Collection<JogoRelatorioEntity> jogoRelatoriosByIdRelatorio) {
-        this.jogoRelatoriosByIdRelatorio = jogoRelatoriosByIdRelatorio;
-    }
-
-
 }

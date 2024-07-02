@@ -1,10 +1,7 @@
 package com.example.proj2ui.Controllers;
 
-<<<<<<< HEAD
 import com.example.proj2dal.Entity.ArbitragemEntity;
 import com.example.proj2dal.BLL.RefTeamBLL;
-=======
->>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
 import com.example.proj2dal.Entity.ArbitroEntity;
 import com.example.proj2dal.BLL.RefereeBLL;
 import javafx.collections.FXCollections;
@@ -34,7 +31,7 @@ public class CreateRefTeamController {
     @FXML
     ComboBox<ArbitroEntity> ref3ComboBox;
 
-<<<<<<< HEAD
+
     @FXML
     public void initialize() {
         loadReferees();
@@ -61,19 +58,13 @@ public class CreateRefTeamController {
 
         RefTeamBLL.createRefTeam(ref1, ref2, ref3);
         showAlert(Alert.AlertType.INFORMATION, "Sucesso", "Equipa de Arbitragem criada com sucesso.");
-=======
-
-    @FXML
-    void createRefTeam(ActionEvent event){
->>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
-
     }
 
     private void loadReferees() {
         List<ArbitroEntity> referees = RefereeBLL.listRefs();
         ObservableList<ArbitroEntity> refereeObservableList = FXCollections.observableArrayList(referees);
         ref1ComboBox.setItems(refereeObservableList);
-<<<<<<< HEAD
+
         ref2ComboBox.setItems(refereeObservableList);
         ref3ComboBox.setItems(refereeObservableList);
 
@@ -84,11 +75,8 @@ public class CreateRefTeamController {
     }
 
     private void setComboBoxCellFactory(ComboBox<ArbitroEntity> comboBox) {
-        comboBox.setCellFactory(param -> new ListCell<ArbitroEntity>() {
-=======
 
-        ref1ComboBox.setCellFactory(param -> new ListCell<>() {
->>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
+        comboBox.setCellFactory(param -> new ListCell<ArbitroEntity>() {
             @Override
             protected void updateItem(ArbitroEntity item, boolean empty) {
                 super.updateItem(item, empty);
@@ -96,11 +84,7 @@ public class CreateRefTeamController {
             }
         });
 
-<<<<<<< HEAD
         comboBox.setButtonCell(new ListCell<ArbitroEntity>() {
-=======
-        ref1ComboBox.setButtonCell(new ListCell<>() {
->>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
             @Override
             protected void updateItem(ArbitroEntity item, boolean empty) {
                 super.updateItem(item, empty);
@@ -109,7 +93,6 @@ public class CreateRefTeamController {
         });
     }
 
-<<<<<<< HEAD
     @FXML
     void backPage(ActionEvent event) {
         loadPage(goBackButton, "/com/example/proj2ui/AdminMenu.fxml", "Login");
@@ -136,33 +119,6 @@ public class CreateRefTeamController {
         alert.showAndWait();
     }
 
-
-=======
-        @FXML
-        void backPage (ActionEvent event){
-            loadPage(goBackButton, "/com/example/proj2ui/AdminMenu.fxml", "Login");
-        }
-
-        private void loadPage (Button button, String fxmlPath, String title){
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
-                Scene scene = new Scene(fxmlLoader.load());
-                Stage stage = (Stage) button.getScene().getWindow();
-                stage.setScene(scene);
-                stage.setTitle(title);
-            } catch (IOException e) {
-                e.printStackTrace();
-                showAlert(Alert.AlertType.ERROR, "Error", "Failed to load the page.");
-            }
-        }
-
-        private void showAlert (Alert.AlertType alertType, String title, String message){
-            Alert alert = new Alert(alertType);
-            alert.setTitle(title);
-            alert.setHeaderText(null);
-            alert.setContentText(message);
-            alert.showAndWait();
-        }
->>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
 }
+
 

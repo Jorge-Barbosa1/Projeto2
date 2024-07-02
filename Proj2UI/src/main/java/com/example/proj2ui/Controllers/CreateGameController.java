@@ -1,7 +1,5 @@
 package com.example.proj2ui.Controllers;
 
-<<<<<<< HEAD
-import com.example.proj2dal.Entity.JogoEntity;
 import com.example.proj2dal.BLL.CampBLL;
 import com.example.proj2dal.BLL.GameBLL;
 import com.example.proj2dal.BLL.RefTeamBLL;
@@ -9,7 +7,7 @@ import com.example.proj2dal.BLL.TeamBLL;
 import com.example.proj2dal.Entity.ArbitragemEntity;
 import com.example.proj2dal.Entity.CampoEntity;
 import com.example.proj2dal.Entity.EquipaEntity;
-import com.example.proj2ui.Managers.SessionInfo;
+import com.example.proj2ui.DTO.SessionInfo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -146,6 +144,9 @@ public class CreateGameController implements Initializable {
                 setText(empty ? "" : item.getNome());
             }
         });
+
+        String test = TeamBLL.listTeams().toString();
+        System.out.println(test);
         team2.setCellFactory(lv-> new ListCell<>() {
             @Override
             protected void updateItem(EquipaEntity item, boolean empty) {
@@ -187,7 +188,4 @@ public class CreateGameController implements Initializable {
         alert.setContentText(message);
         alert.showAndWait();
     }
-=======
-public class CreateGameController {
->>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
 }

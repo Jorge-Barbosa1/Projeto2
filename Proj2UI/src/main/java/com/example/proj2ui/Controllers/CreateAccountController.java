@@ -50,6 +50,7 @@ public class CreateAccountController {
         user.setUsername(username);
         user.setPassword(password);
         user.setIdUser(id);
+        user.setIsAdmin(0);
 
         // Criar o utilizador na tabela User e na Tabela Reporter
         try {

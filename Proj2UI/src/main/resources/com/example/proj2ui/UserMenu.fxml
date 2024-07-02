@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proj2ui.Controllers.UserMenuController">
+   <children>
+      <TableView fx:id="gamesTable" layoutX="141.0" layoutY="90.0" prefHeight="274.0" prefWidth="318.0">
+         <columns>
+            <TableColumn fx:id="team1Column" text="Equipa 1" />
+            <TableColumn fx:id="timeColumn" text="Horário" />
+            <TableColumn fx:id="team2Column" text="Equipa 2" />
+            <TableColumn fx:id="fieldColumn" text="Campo" />
+         </columns>
+      </TableView>
+      <Button fx:id="exitButton" layoutX="24.0" layoutY="371.0" mnemonicParsing="false" onAction="#exitApp" prefHeight="25.0" prefWidth="73.0" text="Sair" />
+      <Button fx:id="goBackButton" layoutX="494.0" layoutY="371.0" mnemonicParsing="false" onAction="#backPage" text="Terminar Sessão" />
+      <Label layoutX="231.0" layoutY="51.0" text="Menu User">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <Button fx:id="reportGameButton" layoutX="24.0" layoutY="188.0" mnemonicParsing="false" onAction="#handleDescribeGame" text="Descrever Jogo" />
+      <Button fx:id="viewFavoritesButton" layoutX="494.0" layoutY="188.0" mnemonicParsing="false" onAction="#viewFavorites" text="Ver Favoritos" />
+   </children>
+</AnchorPane>

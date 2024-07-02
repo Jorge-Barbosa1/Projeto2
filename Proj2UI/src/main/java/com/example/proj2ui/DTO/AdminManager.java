@@ -1,4 +1,4 @@
-package com.example.proj2ui.Managers;
+package com.example.proj2ui.DTO;
 
 import com.example.proj2dal.BLL.DBConnection;
 

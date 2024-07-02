@@ -9,4 +9,5 @@ module com.example.proj2ui {
     opens com.example.proj2ui to javafx.fxml;
     exports com.example.proj2ui;
     opens com.example.proj2ui.Controllers to javafx.fxml;
+    exports com.example.proj2ui.DTO;
 }

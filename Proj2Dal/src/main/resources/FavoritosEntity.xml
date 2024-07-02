@@ -14,6 +14,9 @@
             <basic name="jogadores">
                 <column name="jogadores"/>
             </basic>
+            <basic name="idUser">
+                <column name="id_user"/>
+            </basic>
         </attributes>
     </entity>
 </entity-mappings>

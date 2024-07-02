@@ -13,18 +13,7 @@ public class AdministradorEntity {
     @Id
     @Column(name = "id_administrador", nullable = false, precision = 0)
     private BigInteger idAdministrador;
-    @Basic
-    @Column(name = "id_contactos")
-    private BigInteger idContactos;
-    @Basic
-    @Column(name = "nome")
-    private String nome;
-    @Basic
-    @Column(name = "username")
-    private String username;
-    @Basic
-    @Column(name = "password")
-    private String password;
+
     @Basic
     @Column(name = "id_user", nullable = false)
     private int idUser;
@@ -39,37 +28,6 @@ public class AdministradorEntity {
         this.idAdministrador = idAdministrador;
     }
 
-    public BigInteger getIdContactos() {
-        return idContactos;
-    }
-
-    public void setIdContactos(BigInteger idContactos) {
-        this.idContactos = idContactos;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public int getIdUser() {
         return idUser;

@@ -2,14 +2,11 @@ package com.example.proj2dal.BLL;
 
 import com.example.proj2dal.Entity.JogoEntity;
 import jakarta.persistence.EntityManager;
-<<<<<<< HEAD
 import jakarta.persistence.Query;
+
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-=======
-
->>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
 import java.util.List;
 
 public class GameBLL {
@@ -34,9 +31,9 @@ public class GameBLL {
 
     public static List listGames(){
         return DBConnection.getEntityManager().createQuery("from JogoEntity ").getResultList();
+
     }
 
-<<<<<<< HEAD
     public static BigInteger getNextAvailableId(){
         EntityManager em = DBConnection.getEntityManager();
         try {
@@ -53,7 +50,8 @@ public class GameBLL {
         }
     }
 
-=======
->>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
-
+    /*public static List<GameInfo> listImportantInfoGames(){
+        return DBConnection.getEntityManager().createQuery("SELECT e1.nome, j.hora, e2.nome, c.nome FROM EquipaEntity e1,JogoEntity j,EquipaEntity e2,CampoEntity c WHERE j.idEquipa = e1.idEquipa AND j.idEquipa2 = e2.idEquipa AND j.idCampo = c.idCampo",GameInfo.class)
+                .getResultList();
+    }*/
 }

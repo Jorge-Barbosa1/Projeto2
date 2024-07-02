@@ -1,23 +1,17 @@
 package com.example.proj2ui;
-
-<<<<<<< HEAD
-=======
-import com.example.proj2dal.BLL.AdministratorBLL;
-import com.example.proj2dal.BLL.UserBLL;
-import com.example.proj2dal.Entity.UtilizadorEntity;
-import com.example.proj2ui.Managers.UserManager;
->>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
+import com.example.proj2dal.BLL.DBConnection;
+import com.example.proj2dal.BLL.RelatoryBLL;
+import com.example.proj2dal.Entity.RelatorioEntity;
+import jakarta.persistence.EntityManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
-<<<<<<< HEAD
-=======
 import java.math.BigInteger;
->>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
 
-public class   Main extends Application {
+
+public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
@@ -31,6 +25,12 @@ public class   Main extends Application {
     public static void main(String[] args) {
         //ADMIN PRINCIPAL username:admin pass: admin
 
+        /*Teste de inserção de relatório
+        RelatorioEntity relatorio = new RelatorioEntity();
+        relatorio.setIdJogo(BigInteger.valueOf(1));
+        relatorio.setDescricao("Teste");
+        relatorio.setIdRelatorio(BigInteger.valueOf(1));
+        RelatoryBLL.create(relatorio);*/
         launch();
     }
 }

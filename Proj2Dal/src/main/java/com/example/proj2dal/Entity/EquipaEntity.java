@@ -54,4 +54,9 @@ public class EquipaEntity {
     public void setJogadorsByIdEquipa(Collection<JogadorEntity> jogadorsByIdEquipa) {
         this.jogadorsByIdEquipa = jogadorsByIdEquipa;
     }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
 }

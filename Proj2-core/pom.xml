@@ -10,6 +10,6 @@
     <modules>
         <module>../Proj2UI</module>
         <module>../Proj2UI</module>
-        <module>../Proj2WebApp</module>
+        <module>../Proj2Web</module>
     </modules>
 </project>

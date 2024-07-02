@@ -2,6 +2,7 @@ package com.example.proj2dal.BLL;
 
 
 import com.example.proj2dal.Entity.EquipaEntity;
+import com.example.proj2dal.Entity.JogadorEntity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 
@@ -34,6 +35,18 @@ public class TeamBLL {
     public static List listTeamWithName(String name){
         return  DBConnection.getEntityManager().createQuery("from EquipaEntity where nome like ?1 ").setParameter(1,name).getResultList();
     }
+
+    public static List<JogadorEntity> listPlayersByTeam(int id){
+        EntityManager em = DBConnection.getEntityManager();
+        try {
+            return em.createQuery("SELECT j FROM JogadorEntity j WHERE j.idEquipa = :id", JogadorEntity.class)
+                    .setParameter("id", id)
+                    .getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
 
     public static int getNextAvailableId(){
         EntityManager em = DBConnection.getEntityManager();

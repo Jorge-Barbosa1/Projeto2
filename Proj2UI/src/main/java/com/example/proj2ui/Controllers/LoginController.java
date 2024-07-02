@@ -2,10 +2,7 @@ package com.example.proj2ui.Controllers;
 
 import com.example.proj2dal.BLL.UserBLL;
 import com.example.proj2dal.Entity.UtilizadorEntity;
-<<<<<<< HEAD
-import com.example.proj2ui.Managers.SessionInfo;
-=======
->>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
+import com.example.proj2ui.DTO.SessionInfo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,10 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-<<<<<<< HEAD
 import java.math.BigInteger;
-=======
->>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
 
 public class LoginController {
     @FXML
@@ -42,13 +36,12 @@ public class LoginController {
         if (user != null) {
             showAlert(Alert.AlertType.INFORMATION, "Login bem sucedido", "Bem Vindo " + user.getNome());
             if(user.getIsAdmin()==1){//Verifica se o Utilizador é Administrador ou não
-<<<<<<< HEAD
-                SessionInfo.setAdminId(BigInteger.valueOf(user.getIdUser()));
-=======
->>>>>>> eb702fc9e8dcd3b9124f9cec0d55e14d654e8284
+                SessionInfo.setAdminId(BigInteger.valueOf(user.getIdUser())); //Guarda o ID do Admin
+
                 loadPage("/com/example/proj2ui/AdminMenu.fxml","Menu Administrador");
             }else{
-                //loadPage("/com/example/proj2ui/ReporterMenu.fxml","Menu Reporter");
+                SessionInfo.setUserId(user.getIdUser()); //Guarda o ID do Utilizador
+                loadPage("/com/example/proj2ui/UserMenu.fxml","Menu Reporter");
             }
             // Mudar de tela
         } else {
