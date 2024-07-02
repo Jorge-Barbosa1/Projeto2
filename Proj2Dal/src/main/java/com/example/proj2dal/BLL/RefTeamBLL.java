@@ -1,7 +1,6 @@
 package com.example.proj2dal.BLL;
 
 import com.example.proj2dal.Entity.ArbitragemEntity;
-
 import com.example.proj2dal.Entity.ArbitroEntity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
@@ -10,24 +9,29 @@ import java.util.List;
 public class RefTeamBLL {
 
     public static void createRefTeam(ArbitroEntity ref1, ArbitroEntity ref2, ArbitroEntity ref3) {
-        EntityManager em = null;
+        // Verifica se algum dos árbitros tem ID zero, que é inválido para operações de banco de dados
+        if (ref1.getIdArbitro() == 0 || ref2.getIdArbitro() == 0 || ref3.getIdArbitro() == 0) {
+            throw new IllegalStateException("Um ou mais árbitros têm IDs inválidos (ID=0).");
+        }
+
+        EntityManager em = DBConnection.getEntityManager();
         try {
-            em = DBConnection.getEntityManager();
             if (em == null || !em.isOpen()) {
                 throw new IllegalStateException("EntityManager is not available or is closed.");
             }
 
             em.getTransaction().begin();
 
+            // Merge e verificação de IDs após o merge
             ref1 = em.merge(ref1);
             ref2 = em.merge(ref2);
             ref3 = em.merge(ref3);
 
-            ArbitragemEntity team = new ArbitragemEntity();
-            team.setIdArbitragem(getNextAvailableId());
-            if (ref1.getIdArbitro() == 0) {
-                ref1.setIdArbitro(getNextAvailableId());
+            if (ref1.getIdArbitro() == 0 || ref2.getIdArbitro() == 0 || ref3.getIdArbitro() == 0) {
+                throw new IllegalStateException("Um ou mais árbitros resultaram em IDs inválidos após merge.");
             }
+
+            ArbitragemEntity team = new ArbitragemEntity();
             team.setArbitroByIdArbitro1(ref1);
             team.setArbitroByIdArbitro2(ref2);
             team.setArbitroByIdArbitro3(ref3);
@@ -49,13 +53,6 @@ public class RefTeamBLL {
         }
     }
 
-    public static void createRefTeam(ArbitragemEntity ref){
-        EntityManager em = DBConnection.getEntityManager();
-        em.getTransaction().begin();
-        em.persist(ref);
-        em.getTransaction().commit();
-    }
-
     public static void deleteRefTeam(ArbitragemEntity ref){
         EntityManager em = DBConnection.getEntityManager();
         em.getTransaction().begin();
@@ -64,37 +61,12 @@ public class RefTeamBLL {
     }
 
     public static ArbitragemEntity findRefTeam(int id){
-        return DBConnection.getEntityManager().find(ArbitragemEntity.class,id);
+        return DBConnection.getEntityManager().find(ArbitragemEntity.class, id);
     }
 
     public static List listRefTeam(){
         return DBConnection.getEntityManager().createQuery("from ArbitragemEntity ").getResultList();
     }
-
-    /* Testar a inserção de uma equipa de arbitragem
-    public static void testInsertion() {
-        EntityManager em = DBConnection.getEntityManager();
-        try {
-            em.getTransaction().begin();
-            ArbitroEntity ref1 = em.find(ArbitroEntity.class, 1); // Use um ID válido
-            ArbitroEntity ref2 = em.find(ArbitroEntity.class, 2);
-            ArbitroEntity ref3 = em.find(ArbitroEntity.class, 3);
-
-            ArbitragemEntity team = new ArbitragemEntity();
-            team.setArbitroByIdArbitro1(ref1);
-            team.setArbitroByIdArbitro2(ref2);
-            team.setArbitroByIdArbitro3(ref3);
-            em.persist(team);
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            em.getTransaction().rollback();
-            e.printStackTrace();
-        } finally {
-            em.close();
-        }
-        System.out.println("Insertion successful");
-    }
-    */
 
     public static int getNextAvailableId() {
         EntityManager em = DBConnection.getEntityManager();
@@ -119,5 +91,3 @@ public class RefTeamBLL {
         }
     }
 }
-
-

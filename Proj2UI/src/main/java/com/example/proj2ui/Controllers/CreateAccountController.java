@@ -51,6 +51,8 @@ public class CreateAccountController {
         user.setPassword(password);
         user.setIdUser(id);
         user.setIsAdmin(0);
+        System.out.println("Id atribuido: "+id);
+
 
         // Criar o utilizador na tabela User e na Tabela Reporter
         try {

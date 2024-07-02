@@ -3,18 +3,19 @@ package com.example.proj2dal.BLL;
 import com.example.proj2dal.Entity.FavoritosEntity;
 import jakarta.persistence.EntityManager;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 public class FavoritesBLL {
 
-    public static void createAdmin(FavoritosEntity fav){
+    public static void createFavorite(FavoritosEntity fav){
         EntityManager em = DBConnection.getEntityManager();
         em.getTransaction().begin();
         em.persist(fav);
         em.getTransaction().commit();
     }
 
-    public static void deleteAdmin(FavoritosEntity fav){
+    public static void deleteFAvorite(FavoritosEntity fav){
         EntityManager em = DBConnection.getEntityManager();
         em.getTransaction().begin();
         em.remove(fav);
@@ -43,4 +44,24 @@ public class FavoritesBLL {
             em.close();
         }
     }
+
+    public static int getNextAvailableId(){
+        EntityManager em = DBConnection.getEntityManager();
+        try {
+            String sql = "SELECT MIN(f.id_favoritos + 1) FROM favoritos f LEFT JOIN favoritos f2 ON f.id_favoritos + 1 = f2.id_favoritos WHERE f2.id_favoritos IS NULL";
+            // O resultado é extraído como BigDecimal
+            BigDecimal result = (BigDecimal) em.createNativeQuery(sql).getSingleResult();
+            // Converte BigDecimal para int
+            int nextId = (result != null) ? result.intValue() : 1;
+            return nextId;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 1; // Fallback em caso de erro
+        } finally {
+            if (em != null && em.isOpen()) {
+                em.close();
+            }
+        }
+    }
+
 }

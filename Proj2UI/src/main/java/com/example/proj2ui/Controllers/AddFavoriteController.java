@@ -1,13 +1,18 @@
 package com.example.proj2ui.Controllers;
 
+import com.example.proj2dal.BLL.FavoritesBLL;
 import com.example.proj2dal.BLL.TeamBLL;
 import com.example.proj2dal.Entity.EquipaEntity;
+import com.example.proj2dal.Entity.FavoritosEntity;
 import com.example.proj2dal.Entity.JogadorEntity;
+import com.example.proj2ui.DTO.SessionInfo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -16,43 +21,84 @@ import javafx.scene.control.ListCell;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.math.BigInteger;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class AddFavoriteController {
+public class AddFavoriteController implements Initializable {
     @FXML
     Button goBackButton;
     @FXML
     ComboBox<EquipaEntity> teamsBox;
     @FXML
     ComboBox<JogadorEntity> playersBox;
+    @FXML
+    Button addButton;
+    private Integer userId;
 
-    public void initialize() {
+
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         loadTeams();
+        userId = SessionInfo.getUserId();
         teamsBox.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             loadPlayersBasedOnTeam();
         });
     }
 
+    public void addFavorite() {
+        try {
+            FavoritosEntity favorite = new FavoritosEntity();
+            favorite.setEquipa(String.valueOf(teamsBox.getSelectionModel().getSelectedItem().getNome()));
+            favorite.setJogadores(String.valueOf(playersBox.getSelectionModel().getSelectedItem().getNome()));
+            favorite.setIdFavoritos(BigInteger.valueOf(FavoritesBLL.getNextAvailableId()));
+            favorite.setUserId(userId);
+
+            FavoritesBLL.createFavorite(favorite);
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Favorite successfully added!");
+        } catch (Exception e) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Failed to add favorite: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
     private void loadTeams() {
-        List<EquipaEntity> teams = TeamBLL.listTeams();
-        ObservableList<EquipaEntity> teamObservableList = FXCollections.observableArrayList(teams);
-        teamsBox.setItems(teamObservableList);
-
-        teamsBox.setCellFactory(lv-> new ListCell<>() {
+        Task<List<EquipaEntity>> loadTeamsTask = new Task<>() {
             @Override
-            protected void updateItem(EquipaEntity item, boolean empty) {
-                super.updateItem(item, empty);
-                setText(empty ? "" : item.getNome());
+            protected List<EquipaEntity> call() throws Exception {
+                return TeamBLL.listTeams();
             }
-        });
 
-        teamsBox.setButtonCell(new ListCell<EquipaEntity>() {
             @Override
-            protected void updateItem(EquipaEntity item, boolean empty) {
-                super.updateItem(item, empty);
-                setText(empty ? "" : item.getNome());
+            protected void succeeded() {
+                ObservableList<EquipaEntity> teamObservableList = FXCollections.observableArrayList(getValue());
+                teamsBox.setItems(teamObservableList);
+                teamsBox.setCellFactory(lv -> new ListCell<>() {
+                    @Override
+                    protected void updateItem(EquipaEntity item, boolean empty) {
+                        super.updateItem(item, empty);
+                        setText(empty ? "" : item.getNome());
+                    }
+                });
+
+                teamsBox.setButtonCell(new ListCell<>() {
+                    @Override
+                    protected void updateItem(EquipaEntity item, boolean empty) {
+                        super.updateItem(item, empty);
+                        setText(empty ? "" : item.getNome());
+                    }
+                });
             }
-        });
+
+            @Override
+            protected void failed() {
+                super.failed();
+                showAlert(Alert.AlertType.ERROR, "Error", "Failed to load teams.");
+                getException().printStackTrace();  // Isso imprimirá o stack trace no console.
+            }
+        };
+
+        new Thread(loadTeamsTask).start();
     }
 
     private void loadPlayersBasedOnTeam() {
@@ -106,4 +152,5 @@ public class AddFavoriteController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
 }

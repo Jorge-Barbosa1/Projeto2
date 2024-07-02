@@ -10,9 +10,20 @@ import java.util.List;
 public class PlayerBLL {
     public static void createPlayer(JogadorEntity j){
         EntityManager em = DBConnection.getEntityManager();
-        em.getTransaction().begin();
-        em.persist(j);
-        em.getTransaction().commit();
+        try {
+            em.getTransaction().begin();
+            em.persist(j);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            throw new RuntimeException(e);  // Propague a exceção para ser tratada ou logada adequadamente
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
     }
 
     public static void deletePlayer(JogadorEntity j){
@@ -36,8 +47,17 @@ public class PlayerBLL {
 
     public static int getNextAvailableId(){
         EntityManager em = DBConnection.getEntityManager();
-        Query query = em.createNativeQuery("SELECT MIN(j.id_jogador + 1) FROM jogador j LEFT JOIN jogador j2 ON j.id_jogador + 1 = j2.id_jogador WHERE j2.id_jogador IS NULL");
-        Integer nextId = (Integer) query.getSingleResult();
-        return (nextId != null) ? nextId : 1; // Retorna 1 se nextId for null
+        try {
+            String sql = "SELECT MIN(j.id_jogador + 1) FROM jogador j LEFT JOIN jogador j2 ON j.id_jogador + 1 = j2.id_jogador WHERE j2.id_jogador IS NULL";
+            Integer nextId = (Integer) em.createNativeQuery(sql).getSingleResult();
+            return (nextId != null) ? nextId : 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 1; // Fallback em caso de erro
+        } finally {
+            if (em != null && em.isOpen()) {
+                em.close();
+            }
+        }
     }
 }

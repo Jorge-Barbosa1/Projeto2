@@ -31,7 +31,6 @@ public class CreateRefTeamController {
     @FXML
     ComboBox<ArbitroEntity> ref3ComboBox;
 
-
     @FXML
     public void initialize() {
         loadReferees();

@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -17,31 +18,36 @@ import javafx.collections.FXCollections;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
 
-public class FavoritesPageController {
+public class FavoritesPageController implements Initializable {
     @FXML
     public Button addFavButton;
     private Integer userId;
     @FXML
     Button goBackButton;
     @FXML
-    TableView<FavoritesBLL> favoritesTableView;
+    TableView<FavoritosEntity> favoritesTableView;
     @FXML
-    TableColumn<FavoritesBLL, String> teamColumn;
+    TableColumn<FavoritosEntity, String> teamColumn;
     @FXML
-    TableColumn<FavoritesBLL, String> playerColumn;
+    TableColumn<FavoritosEntity, String> playerColumn;
 
-    public void initialize() {
-        SessionInfo sessionInfo = new SessionInfo();
-        userId = sessionInfo.getUserId();  // Aqui deve ser sessionInfo em vez de SessionInfo
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        userId = SessionInfo.getUserId();  // Ensure this correctly fetches the current user's ID
 
-        teamColumn.setCellValueFactory(new PropertyValueFactory<>("team"));
-        playerColumn.setCellValueFactory(new PropertyValueFactory<>("player"));
+        teamColumn.setCellValueFactory(new PropertyValueFactory<>("equipa"));
+        playerColumn.setCellValueFactory(new PropertyValueFactory<>("jogadores"));
 
+        // Retrieve the list of favorites for the user
         List<FavoritosEntity> favoritesList = FavoritesBLL.listFavsByUser(userId);
-        ObservableList<FavoritesBLL> observableFavoritesList = FXCollections.observableArrayList();
+        // Convert the List to an ObservableList
+        ObservableList<FavoritosEntity> observableFavoritesList = FXCollections.observableArrayList(favoritesList);
+        // Set the ObservableList to the TableView
         favoritesTableView.setItems(observableFavoritesList);
     }
 

@@ -28,8 +28,13 @@ public class TeamBLL {
         return DBConnection.getEntityManager().find(EquipaEntity.class,id);
     }
 
-    public static List listTeams(){
-        return DBConnection.getEntityManager().createQuery("from EquipaEntity ").getResultList();
+    public static List<EquipaEntity> listTeams(){
+        EntityManager em = DBConnection.getEntityManager();
+        try{
+        return em.createQuery("from EquipaEntity ").getResultList();
+        }finally {
+            em.close();
+        }
     }
 
     public static List listTeamWithName(String name){
