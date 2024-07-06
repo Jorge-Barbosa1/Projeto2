@@ -38,6 +38,10 @@ public class AdminMenuController {
     void createAdmin(ActionEvent event){
         loadPage(newAdminButton,"/com/example/proj2ui/CreateAdmin.fxml","Novo Administrador");
     }
+    @FXML
+    void checkReports(ActionEvent event){
+        loadPage(checkResultButton,"/com/example/proj2ui/CheckReports.fxml","Ver Relatórios");
+    }
 
     @FXML
     void createTeam(ActionEvent event){
@@ -54,18 +58,8 @@ public class AdminMenuController {
     }
 
     @FXML
-    void checkResult(ActionEvent event){
-        loadPage(checkResultButton,"/com/example/proj2ui/CheckResult.fxml","Ver Resultados");
-    }
-
-    @FXML
     void createRefTeam(ActionEvent event){
         loadPage(newRefTeamButton,"/com/example/proj2ui/CreateRefTeam.fxml","Nova Equipa de Arbitragem");
-    }
-
-    @FXML
-    void resume(ActionEvent event){
-        loadPage(resumeButton,"/com/example/proj2ui/CreateResume.fxml","Resumo");
     }
 
     @FXML

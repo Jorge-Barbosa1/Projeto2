@@ -16,8 +16,7 @@
             <Font name="System Bold" size="27.0" />
          </font>
       </Label>
-      <Button fx:id="checkResultButton" layoutX="420.0" layoutY="130.0" mnemonicParsing="false" onAction="#checkResult" text="Verificar Resultado" />
-      <Button fx:id="resumeButton" layoutX="420.0" layoutY="175.0" mnemonicParsing="false" onAction="#resume" prefHeight="25.0" prefWidth="116.0" text="Lançar Resumo" />
+      <Button fx:id="checkResultButton" layoutX="420.0" layoutY="130.0" mnemonicParsing="false" onAction="#checkReports" text="Verificar Resultado" />
       <Button fx:id="backToLoginButton" layoutX="484.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToLogin" text="Terminar Sessão" />
       <Button fx:id="newCampButton" layoutX="86.0" layoutY="265.0" mnemonicParsing="false" onAction="#createCamp" prefHeight="25.0" prefWidth="116.0" text="Criar Campo" />
       <Button fx:id="newGameButton" layoutX="242.0" layoutY="130.0" mnemonicParsing="false" onAction="#createGame" prefHeight="25.0" prefWidth="116.0" text="Criar Jogo" />

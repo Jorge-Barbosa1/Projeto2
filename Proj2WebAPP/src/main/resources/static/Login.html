@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt"> <!-- xmlns:th="http://www.thymeleaf.org" -->
+<head>
+    <meta charset="UTF-8">
+    <title>Futebol | Log in</title>
+    <style>
+        .wrapper {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, button {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .alert {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h2>Log in</h2>
+    <form action="/logger" method="post" th:action="@{/logger}" th:object="${form}">
+        <!-- <div th:if="${error}" class="alert" th:text="${error}">Erro de login</div> -->
+        <label for="username">Nome de Usuário</label>
+        <input type="text" id="username" name="username" placeholder="Nome de Utilizador" required autofocus/>
+
+        <label for="password">Palavra-passe</label>
+        <input type="password" id="password" name="password" placeholder="Palavra-passe" required/>
+
+        <button type="submit">Log in</button>
+    </form>
+</div>
+</body>
+</html>

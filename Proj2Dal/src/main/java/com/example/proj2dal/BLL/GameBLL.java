@@ -1,6 +1,7 @@
 package com.example.proj2dal.BLL;
 
 import com.example.proj2dal.Entity.JogoEntity;
+import com.example.proj2dal.Entity.JogoRelatorioEntity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 
@@ -29,9 +30,10 @@ public class GameBLL {
         return DBConnection.getEntityManager().find(JogoEntity.class,id);
     }
 
-    public static List listGames(){
-        return DBConnection.getEntityManager().createQuery("from JogoEntity ").getResultList();
-
+    public static List<JogoEntity> listGames(){
+        List<JogoEntity> games = DBConnection.getEntityManager().createQuery("from JogoEntity ").getResultList();
+        System.out.println(games.size());
+        return games;
     }
 
     public static BigInteger getNextAvailableId(){

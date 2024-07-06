@@ -29,26 +29,28 @@ public class UserBLL {
     }
 
     //Fazer Login
-    public static UtilizadorEntity logUser(String username, String password){
+    public static UtilizadorEntity logUser(String username, String password) {
         EntityManager em = DBConnection.getEntityManager();
         TypedQuery<UtilizadorEntity> query = em.createQuery(
                 "FROM UtilizadorEntity u WHERE u.username = :username AND u.password = :password", UtilizadorEntity.class);
-                query.setParameter("username", username);
-                query.setParameter("password", password);
-                try {
-                    return query.getSingleResult();
-                } catch (NoResultException ex) {
-                    return null; // Nenhum resultado encontrado
-                } catch (jakarta.persistence.NonUniqueResultException ex) {
-                    // Lidar com múltiplos resultados
-                    List<UtilizadorEntity> results = query.getResultList();
-                    if (!results.isEmpty()) {
-                        return results.get(0); // Retorna o primeiro resultado
-                    } else {
-                        return null; //
-                }
+        query.setParameter("username", username);
+        query.setParameter("password", password);
+        try {
+            return query.getSingleResult();
+        } catch (NoResultException ex) {
+            return null; // Nenhum resultado encontrado
+        } catch (jakarta.persistence.NonUniqueResultException ex) {
+            // Lidar com múltiplos resultados
+            List<UtilizadorEntity> results = query.getResultList();
+            if (!results.isEmpty()) {
+                return results.get(0); // Retorna o primeiro resultado
+            } else {
+                return null; //
             }
+
         }
+
+    }
 
 
     //Ver qual é o id mais baixo disponivel para atribuir ao proximo user
@@ -62,5 +64,29 @@ public class UserBLL {
 
     public static List listUser(){
         return DBConnection.getEntityManager().createQuery("from UtilizadorEntity ").getResultList();
+    }
+
+    public static boolean existsByUsername(String username) {
+        EntityManager em = DBConnection.getEntityManager();
+        try {
+            Long count = em.createQuery("SELECT COUNT(u) FROM UtilizadorEntity u WHERE u.username = :username", Long.class)
+                    .setParameter("username", username)
+                    .getSingleResult();
+            return count > 0;
+        } catch (NoResultException e) {
+            return false;
+        }
+    }
+
+    public static boolean existsByEmail(String email) {
+        EntityManager em = DBConnection.getEntityManager();
+        try {
+            Long count = em.createQuery("SELECT COUNT(u) FROM UtilizadorEntity u WHERE u.email = :email", Long.class)
+                    .setParameter("email", email)
+                    .getSingleResult();
+            return count > 0;
+        } catch (NoResultException e) {
+            return false;
+        }
     }
 }
