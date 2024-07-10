@@ -43,11 +43,8 @@ public class FavoritesPageController implements Initializable {
         teamColumn.setCellValueFactory(new PropertyValueFactory<>("equipa"));
         playerColumn.setCellValueFactory(new PropertyValueFactory<>("jogadores"));
 
-        // Retrieve the list of favorites for the user
         List<FavoritosEntity> favoritesList = FavoritesBLL.listFavsByUser(userId);
-        // Convert the List to an ObservableList
         ObservableList<FavoritosEntity> observableFavoritesList = FXCollections.observableArrayList(favoritesList);
-        // Set the ObservableList to the TableView
         favoritesTableView.setItems(observableFavoritesList);
     }
 

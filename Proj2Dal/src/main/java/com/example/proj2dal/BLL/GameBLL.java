@@ -30,11 +30,13 @@ public class GameBLL {
         return DBConnection.getEntityManager().find(JogoEntity.class,id);
     }
 
-    public static List<JogoEntity> listGames(){
-        List<JogoEntity> games = DBConnection.getEntityManager().createQuery("from JogoEntity ").getResultList();
-        System.out.println(games.size());
+    public static List<JogoEntity> listGames() {
+        EntityManager em = DBConnection.getEntityManager();
+        List<JogoEntity> games = em.createQuery("from JogoEntity", JogoEntity.class).getResultList();
+        System.out.println(games.size()); // Verifique o tamanho da lista no console
         return games;
     }
+
 
     public static BigInteger getNextAvailableId(){
         EntityManager em = DBConnection.getEntityManager();
@@ -52,8 +54,5 @@ public class GameBLL {
         }
     }
 
-    /*public static List<GameInfo> listImportantInfoGames(){
-        return DBConnection.getEntityManager().createQuery("SELECT e1.nome, j.hora, e2.nome, c.nome FROM EquipaEntity e1,JogoEntity j,EquipaEntity e2,CampoEntity c WHERE j.idEquipa = e1.idEquipa AND j.idEquipa2 = e2.idEquipa AND j.idCampo = c.idCampo",GameInfo.class)
-                .getResultList();
-    }*/
+
 }

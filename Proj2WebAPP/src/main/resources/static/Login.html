@@ -34,6 +34,17 @@
             color: red;
             margin-bottom: 10px;
         }
+        .register-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .register-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .register-link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -41,7 +52,7 @@
     <h2>Log in</h2>
     <form action="/logger" method="post" th:action="@{/logger}" th:object="${form}">
         <!-- <div th:if="${error}" class="alert" th:text="${error}">Erro de login</div> -->
-        <label for="username">Nome de Usuário</label>
+        <label for="username">Nome de Utilizador</label>
         <input type="text" id="username" name="username" placeholder="Nome de Utilizador" required autofocus/>
 
         <label for="password">Palavra-passe</label>
@@ -49,6 +60,12 @@
 
         <button type="submit">Log in</button>
     </form>
+    <div class="register-link">
+        <p>Não tem uma conta? <a href="/Register.html">Registar</a></p>
+    </div>
 </div>
+<script>
+    //Metodo para guardar globalmente o id do utilizador
+</script>
 </body>
 </html>

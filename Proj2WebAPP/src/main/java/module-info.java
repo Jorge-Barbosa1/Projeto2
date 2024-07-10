@@ -10,6 +10,7 @@ module org.example.proj2web {
     requires java.desktop;
     requires spring.beans;
     requires spring.core;
+    requires static lombok;
 
     // Abre pacotes para Spring e Hibernate
     opens org.example.proj2webapp to spring.core, spring.beans, spring.context, jakarta.persistence;
@@ -18,4 +19,6 @@ module org.example.proj2web {
     exports org.example.proj2webapp;
     exports org.example.proj2webapp.Controllers;
     exports org.example.proj2webapp.Services;
+    exports org.example.proj2webapp.DTO;
+    opens org.example.proj2webapp.Controllers to spring.core;
     }

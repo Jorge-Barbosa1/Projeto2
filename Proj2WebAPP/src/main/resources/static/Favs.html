@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoritos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .button-container {
+            margin-bottom: 20px;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<div class="button-container">
+    <button onclick="window.location.href='/Home.html'">Voltar</button>
+    <button onclick="window.location.href='/AddFavorite.html'">Adicionar aos Favoritos</button>
+</div>
+<h1>Os meus Favoritos</h1>
+<table id="Favoritos">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Equipa</th>
+        <th>Jogador</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Linhas inseridas pelo JavaScript -->
+    </tbody>
+</table>
+<script>
+    // Obter os favoritos do utilizador
+    function loadFavs() {
+        fetch('/api/favs')
+            .then(response => response.json())
+            .then(favoritos => {
+                console.log('Favoritos recebidos:', favoritos); // Verifique o que está sendo retornado
+                if (Array.isArray(favoritos)) {
+                    const table = document.getElementById('Favoritos');
+                    const tbody = table.getElementsByTagName('tbody')[0];
+                    favoritos.forEach(favorito => {
+                        const row = tbody.insertRow(); // Linha que pode estar causando o erro
+                        row.insertCell(0).textContent = favorito.idFavoritos;
+                        row.insertCell(1).textContent = favorito.equipa;
+                        row.insertCell(2).textContent = favorito.jogadores;
+                        // Verifique se outras células devem ser preenchidas aqui
+                    });
+                } else {
+                    console.error('A resposta da API não é um array:', favoritos);
+                }
+            })
+            .catch(error => console.error('Erro:', error));
+    }
+    window.onload = loadFavs;
+
+</script>
+</html>

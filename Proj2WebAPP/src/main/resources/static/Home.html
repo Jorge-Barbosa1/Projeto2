@@ -17,9 +17,26 @@
         th {
             background-color: #f2f2f2;
         }
+        .button-container {
+            margin-bottom: 20px;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
+<div class="button-container">
+    <button onclick="window.location.href='/Favs.html'">Favoritos</button>
+</div>
 <h1>Lista de Jogos</h1>
 <table id="gamesTable">
     <thead>
@@ -28,65 +45,38 @@
         <th>Equipa1</th>
         <th> VS </th>
         <th>Equipa2</th>
-        <!-- Adicione outras colunas conforme necessário -->
+        <th>Data</th>
+        <th>Hora</th>
+        <th>Campo</th>
     </tr>
     </thead>
     <tbody>
-    <!-- Os jogos serão inseridos aqui pelo JavaScript -->
     </tbody>
 </table>
 
 <script>
-    // Função para carregar os jogos da API
     function loadGames() {
         fetch('/api/jogos')
             .then(response => response.json())
             .then(games => {
-                console.log("Dados recebidos:", games); // Adiciona isso para ver no console do navegador
+                console.log("Dados recebidos:", games);
                 const tableBody = document.getElementById('gamesTable').getElementsByTagName('tbody')[0];
+                tableBody.innerHTML = ''; // Limpa o conteúdo anterior
                 games.forEach(game => {
                     let row = tableBody.insertRow();
-                    let cellIdGame = row.insertCell(0);
-                    cellIdGame.innerHTML = game.idJogo;
-                    let cellTeam1 = row.insertCell(1);
-                    cellTeam1.innerHTML = game.idEquipa;
-                    let cellVS = row.insertCell(2);
-                    cellVS.innerHTML = "VS";
-                    let cellTeam2 = row.insertCell(3);
-                    cellTeam2.innerHTML = game.idEquipa2;
+                    row.insertCell(0).innerHTML = game.idJogo;
+                    row.insertCell(1).innerHTML = game.idEquipa;
+                    row.insertCell(2).innerHTML = "VS";
+                    row.insertCell(3).innerHTML = game.idEquipa2;
+                    row.insertCell(4).innerHTML = game.data;
+                    row.insertCell(5).innerHTML = game.hora;
+                    row.insertCell(6).innerHTML = game.idCampo;
                 });
             })
-            .catch(error => console.error('Erro ao buscar jogos:', error));
+            .catch(error => console.error('Erro ao encontrar jogos:', error));
     }
 
     window.onload = loadGames;
-
 </script>
 </body>
 </html>
-<!--
-                HTML ANTIGO->Não funciona
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Menu</title>
-    <script>
-        fetch('/api/jogos')
-            .then(response => response.json())
-            .then(jogos =>{
-                console.log(jogos.length)
-                jogos.forEach(jogo => {
-                    console.log('Processando jogo:', jogo);
-                    const div = document.createElement('div');
-                    div.textContent = `Jogo ID: ${jogo.idJogo}, Equipa Casa: ${jogo.idEquipa}, Equipa Fora: ${jogo.idEquipa2}, Data: ${jogo.data}`;
-                    document.body.appendChild(div);
-                })
-            })
-            .catch(error => console.error('Erro ao buscar os jogos', error));
-    </script>
-</head>
-
-<body>
-</body>
-</html>-->

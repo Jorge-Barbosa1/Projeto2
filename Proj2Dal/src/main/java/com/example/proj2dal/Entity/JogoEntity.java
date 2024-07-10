@@ -142,4 +142,18 @@ public class JogoEntity {
     public void setReportersByIdJogo(Collection<ReporterEntity> reportersByIdJogo) {
         this.reportersByIdJogo = reportersByIdJogo;
     }
+
+    @Override
+    public String toString() {
+        return "JogoEntity{" +
+                "idJogo=" + idJogo +
+                ", idAdministrador=" + idAdministrador +
+                ", data=" + data +
+                ", hora='" + hora + '\'' +
+                ", idCampo=" + idCampo +
+                ", idEquipa=" + idEquipa +
+                ", idEquipa2=" + idEquipa2 +
+                ", idArbitragem=" + idArbitragem +
+                '}';
+    }
 }
