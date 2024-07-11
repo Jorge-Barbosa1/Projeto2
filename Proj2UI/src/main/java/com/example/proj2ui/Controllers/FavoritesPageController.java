@@ -65,7 +65,7 @@ public class FavoritesPageController implements Initializable {
             stage.setTitle(title);
         } catch (IOException e) {
             e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Error", "Failed to load the page.");
+            showAlert(Alert.AlertType.ERROR, "Error", "Erro ao carregar a pagina.");
         }
     }
     private void showAlert(Alert.AlertType alertType, String title, String message){

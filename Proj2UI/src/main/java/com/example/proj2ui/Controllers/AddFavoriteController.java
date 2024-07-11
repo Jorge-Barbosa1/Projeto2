@@ -55,9 +55,9 @@ public class AddFavoriteController implements Initializable {
             favorite.setUserId(userId);
 
             FavoritesBLL.createFavorite(favorite);
-            showAlert(Alert.AlertType.INFORMATION, "Success", "Favorite successfully added!");
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Sucesso ao adicionar favorito!");
         } catch (Exception e) {
-            showAlert(Alert.AlertType.ERROR, "Error", "Failed to add favorite: " + e.getMessage());
+            showAlert(Alert.AlertType.ERROR, "Error", "Erro ao adicionar favorito: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -93,7 +93,7 @@ public class AddFavoriteController implements Initializable {
             @Override
             protected void failed() {
                 super.failed();
-                showAlert(Alert.AlertType.ERROR, "Error", "Failed to load teams.");
+                showAlert(Alert.AlertType.ERROR, "Error", "Erro ao loadar as equipas.");
                 getException().printStackTrace();  // Isso imprimirá o stack trace no console.
             }
         };
@@ -142,7 +142,7 @@ public class AddFavoriteController implements Initializable {
             stage.setTitle(title);
         } catch (IOException e) {
             e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Error", "Failed to load the page.");
+            showAlert(Alert.AlertType.ERROR, "Error", "Erro ao loadar as equipas.");
         }
     }
     private void showAlert(Alert.AlertType alertType, String title, String message){

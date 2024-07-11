@@ -43,6 +43,11 @@ public class CreateAccountController {
         //Encontrar o proximo id disponivel
         int id = UserBLL.getNextAvailableId();
 
+        if(phoneTxt.getText().length() != 9){
+            showAlert(Alert.AlertType.ERROR, "Erro", "O número de telefone deve ter 9 dígitos.");
+            return;
+        }
+
         UtilizadorEntity user = new UtilizadorEntity();
         user.setNome(name);
         user.setTelefone(BigInteger.valueOf(phone));
