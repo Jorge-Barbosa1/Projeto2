@@ -5,6 +5,7 @@ import com.example.proj2dal.Entity.FavoritosEntity;
 import org.example.proj2webapp.DTO.UserDTO;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Service
@@ -22,6 +23,16 @@ public class FavsService {
     public boolean addFav(FavoritosEntity favorite) {
         try{
             FavoritesBLL.createFavorite(favorite);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean deleteFav(BigInteger favoriteId) {
+        try{
+            FavoritesBLL.deleteFavorite(favoriteId);
             return true;
         }catch (Exception e){
             e.printStackTrace();

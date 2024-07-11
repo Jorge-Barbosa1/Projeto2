@@ -2,8 +2,10 @@ package com.example.proj2dal.BLL;
 
 import com.example.proj2dal.Entity.FavoritosEntity;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.*;
 
 public class FavoritesBLL {
@@ -15,11 +17,25 @@ public class FavoritesBLL {
         em.getTransaction().commit();
     }
 
-    public static void deleteFAvorite(FavoritosEntity fav){
+    public static void deleteFavorite(BigInteger id){
         EntityManager em = DBConnection.getEntityManager();
-        em.getTransaction().begin();
-        em.remove(fav);
-        em.getTransaction().commit();
+        try {
+            em.getTransaction().begin();
+            FavoritosEntity fav = em.find(FavoritosEntity.class, id);
+            if (fav != null) {
+                em.remove(fav);
+            } else {
+                throw new NoResultException("Favorite not found with ID: " + id);
+            }
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            throw e;
+        } finally {
+            em.close();
+        }
     }
 
     public static FavoritosEntity findFavs(int id){

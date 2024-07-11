@@ -35,6 +35,7 @@
 </head>
 <body>
 <div class="button-container">
+    <button onclick="goBack()">Sair</button>
     <button onclick="window.location.href='/Favs.html'">Favoritos</button>
 </div>
 <h1>Lista de Jogos</h1>
@@ -74,6 +75,10 @@
                 });
             })
             .catch(error => console.error('Erro ao encontrar jogos:', error));
+    }
+
+    function goBack() {
+        window.location.href='/Login.html';
     }
 
     window.onload = loadGames;

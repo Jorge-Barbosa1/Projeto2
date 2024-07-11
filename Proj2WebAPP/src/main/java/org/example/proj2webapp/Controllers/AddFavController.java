@@ -8,6 +8,7 @@ import org.example.proj2webapp.DTO.FavoriteDTO;
 import org.example.proj2webapp.DTO.PlayerDTO;
 import org.example.proj2webapp.DTO.TeamDTO;
 import org.example.proj2webapp.DTO.UserDTO;
+import org.example.proj2webapp.Services.AuthenticationService;
 import org.example.proj2webapp.Services.FavsService;
 import org.example.proj2webapp.Services.TeamsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,11 +44,12 @@ public class AddFavController {
 
     @PostMapping("/AddFav")
     @ResponseBody
-    public ResponseEntity<String> addFav(@RequestParam FavoriteDTO favoriteDTO){
+    public ResponseEntity<String> addFav(@RequestBody FavoriteDTO favoriteDTO){
+        Integer userId = AuthenticationService.getUserId();
         FavoritosEntity favorite = new FavoritosEntity();
 
         favorite.setIdFavoritos(BigInteger.valueOf(FavoritesBLL.getNextAvailableId()));
-        favorite.setUserId(UserDTO.getUserId());
+        favorite.setUserId(userId);
         favorite.setJogadores(favoriteDTO.getPlayerName());
         favorite.setEquipa(favoriteDTO.getTeamName());
 

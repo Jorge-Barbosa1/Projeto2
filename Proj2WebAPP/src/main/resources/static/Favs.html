@@ -31,6 +31,14 @@
         .button-container button:hover {
             background-color: #0056b3;
         }
+        .remove-button {
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <div class="button-container">
@@ -60,20 +68,52 @@
                 if (Array.isArray(favoritos)) {
                     const table = document.getElementById('Favoritos');
                     const tbody = table.getElementsByTagName('tbody')[0];
+                    tbody.innerHTML = ''; // Limpar linhas existentes
                     favoritos.forEach(favorito => {
-                        const row = tbody.insertRow(); // Linha que pode estar causando o erro
+                        const row = tbody.insertRow();
                         row.insertCell(0).textContent = favorito.idFavoritos;
                         row.insertCell(1).textContent = favorito.equipa;
                         row.insertCell(2).textContent = favorito.jogadores;
-                        // Verifique se outras células devem ser preenchidas aqui
-                    });
+
+                        const actionCell = row.insertCell(3);
+                        const removeButton = document.createElement('button');
+                        removeButton.className = 'remove-button';
+                        removeButton.textContent = 'Remover';
+                        removeButton.onclick= function (){
+                            removeFavorite(favorito.idFavoritos, row);
+                        };
+                        actionCell.appendChild(removeButton);
+                        });
+
                 } else {
                     console.error('A resposta da API não é um array:', favoritos);
                 }
             })
             .catch(error => console.error('Erro:', error));
     }
-    window.onload = loadFavs;
 
+    function removeFavorite(favoriteId, row) {
+        if (favoriteId) {
+            const url = `/api/favs/${favoriteId}`; // Corrigido aqui, substitua aspas simples por backticks
+            console.log('URL for DELETE request:', url); // Adicionado log para depuração
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Favorito removido com sucesso!');
+                        row.remove();
+                    } else {
+                        alert('Erro ao remover favorito!');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao remover favorito:', error);
+                    alert('Erro ao remover favorito!');
+                });
+        }
+    }
+
+    window.onload= loadFavs;
 </script>
 </html>

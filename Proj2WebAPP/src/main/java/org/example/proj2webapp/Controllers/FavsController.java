@@ -5,11 +5,11 @@ import org.example.proj2webapp.Services.FavsService;
 import org.example.proj2webapp.Services.TeamsService;
 import org.hibernate.annotations.AttributeAccessor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Controller
@@ -31,4 +31,14 @@ public class FavsController {
         return favsService.getFavs();
     }
 
+    @DeleteMapping("/favs/{favoriteId}")
+    @ResponseBody
+    public ResponseEntity<String> deleteFav(@PathVariable BigInteger favoriteId){
+        boolean sucess = favsService.deleteFav(favoriteId);
+        if(sucess){
+            return ResponseEntity.ok("Favorite deleted.");
+        }else{
+            return ResponseEntity.badRequest().body("Error deleting favorite.");
+        }
+    }
 }

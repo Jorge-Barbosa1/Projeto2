@@ -4,12 +4,10 @@ import com.example.proj2dal.Entity.JogoEntity;
 import org.example.proj2webapp.Services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import com.example.proj2dal.BLL.GameBLL;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -20,4 +18,5 @@ public class HomeController {
     public List<JogoEntity> getAllGames() {
         return GameBLL.listGames();
     }
+
 }
