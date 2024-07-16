@@ -14,32 +14,54 @@ public class JogoEntity {
     @Id
     @Column(name = "id_jogo", nullable = false, precision = 0)
     private BigInteger idJogo;
+
     @Basic
     @Column(name = "id_administrador", nullable = false, precision = 0)
     private BigInteger idAdministrador;
+
     @Basic
     @Column(name = "data", nullable = true)
     private Date data;
+
     @Basic
     @Column(name = "hora", nullable = true, length = 50)
     private String hora;
+
     @Basic
     @Column(name = "id_campo", nullable = true)
     private Integer idCampo;
+
     @Basic
     @Column(name = "id_equipa", nullable = true)
     private Integer idEquipa;
+
     @Basic
     @Column(name = "id_equipa2", nullable = true)
     private Integer idEquipa2;
+
     @Basic
     @Column(name = "id_arbitragem", nullable = true)
     private Integer idArbitragem;
+
     @ManyToOne
-    @JoinColumn(name = "id_administrador", referencedColumnName = "id_administrador", nullable = false , insertable = false, updatable = false)
+    @JoinColumn(name = "id_administrador", referencedColumnName = "id_administrador", nullable = false, insertable = false, updatable = false)
     private AdministradorEntity administradorByIdAdministrador;
+
+    @ManyToOne
+    @JoinColumn(name = "id_equipa", referencedColumnName = "id_equipa", insertable = false, updatable = false)
+    private EquipaEntity equipaByIdEquipa;
+
+    @ManyToOne
+    @JoinColumn(name = "id_equipa2", referencedColumnName = "id_equipa", insertable = false, updatable = false)
+    private EquipaEntity equipaByIdEquipa2;
+
+    @ManyToOne
+    @JoinColumn(name = "id_campo", referencedColumnName = "id_campo", insertable = false, updatable = false)
+    private CampoEntity campoByIdCampo;
+
     @OneToMany(mappedBy = "jogoByIdJogo")
     private Collection<JogoRelatorioEntity> jogoRelatoriosByIdJogo;
+
     @OneToMany(mappedBy = "jogoByIdJogo")
     private Collection<ReporterEntity> reportersByIdJogo;
 
@@ -90,6 +112,7 @@ public class JogoEntity {
     public void setIdEquipa(Integer idEquipa) {
         this.idEquipa = idEquipa;
     }
+
     public Integer getIdEquipa2() {
         return idEquipa2;
     }
@@ -111,12 +134,19 @@ public class JogoEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         JogoEntity that = (JogoEntity) o;
-        return Objects.equals(idJogo, that.idJogo) && Objects.equals(idAdministrador, that.idAdministrador) && Objects.equals(data, that.data) && Objects.equals(hora, that.hora) && Objects.equals(idCampo, that.idCampo) && Objects.equals(idEquipa, that.idEquipa) && Objects.equals(idArbitragem, that.idArbitragem);
+        return Objects.equals(idJogo, that.idJogo) &&
+                Objects.equals(idAdministrador, that.idAdministrador) &&
+                Objects.equals(data, that.data) &&
+                Objects.equals(hora, that.hora) &&
+                Objects.equals(idCampo, that.idCampo) &&
+                Objects.equals(idEquipa, that.idEquipa) &&
+                Objects.equals(idEquipa2, that.idEquipa2) &&
+                Objects.equals(idArbitragem, that.idArbitragem);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idJogo, idAdministrador, data, hora, idCampo, idEquipa, idArbitragem);
+        return Objects.hash(idJogo, idAdministrador, data, hora, idCampo, idEquipa, idEquipa2, idArbitragem);
     }
 
     public AdministradorEntity getAdministradorByIdAdministrador() {
@@ -125,6 +155,30 @@ public class JogoEntity {
 
     public void setAdministradorByIdAdministrador(AdministradorEntity administradorByIdAdministrador) {
         this.administradorByIdAdministrador = administradorByIdAdministrador;
+    }
+
+    public EquipaEntity getEquipaByIdEquipa() {
+        return equipaByIdEquipa;
+    }
+
+    public void setEquipaByIdEquipa(EquipaEntity equipaByIdEquipa) {
+        this.equipaByIdEquipa = equipaByIdEquipa;
+    }
+
+    public EquipaEntity getEquipaByIdEquipa2() {
+        return equipaByIdEquipa2;
+    }
+
+    public void setEquipaByIdEquipa2(EquipaEntity equipaByIdEquipa2) {
+        this.equipaByIdEquipa2 = equipaByIdEquipa2;
+    }
+
+    public CampoEntity getCampoByIdCampo() {
+        return campoByIdCampo;
+    }
+
+    public void setCampoByIdCampo(CampoEntity campoByIdCampo) {
+        this.campoByIdCampo = campoByIdCampo;
     }
 
     public Collection<JogoRelatorioEntity> getJogoRelatoriosByIdJogo() {

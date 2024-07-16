@@ -4,12 +4,12 @@ import java.math.BigInteger;
 
 public class GameInfo {
     private BigInteger idGame;
-    private Integer team1Name;
-    private Integer  team2Name;
-    private Integer fieldName;
+    private String team1Name;
+    private String team2Name;
+    private String fieldName;
     private String time;
 
-    public GameInfo(BigInteger idGame, Integer team1Name, String time, Integer team2Name, Integer fieldName) {
+    public GameInfo(BigInteger idGame, String team1Name, String time, String team2Name, String fieldName) {
         this.idGame = idGame;
         this.team1Name = team1Name;
         this.team2Name = team2Name;
@@ -25,27 +25,27 @@ public class GameInfo {
         this.idGame = idGame;
     }
 
-    public Integer getTeam1Name() {
+    public String getTeam1Name() {
         return team1Name;
     }
 
-    public void setTeam1Name(Integer team1Name) {
+    public void setTeam1Name(String team1Name) {
         this.team1Name = team1Name;
     }
 
-    public Integer getTeam2Name() {
+    public String getTeam2Name() {
         return team2Name;
     }
 
-    public void setTeam2Name(Integer team2Name) {
+    public void setTeam2Name(String team2Name) {
         this.team2Name = team2Name;
     }
 
-    public Integer getFieldName() {
+    public String getFieldName() {
         return fieldName;
     }
 
-    public void setFieldName(Integer fieldName) {
+    public void setFieldName(String fieldName) {
         this.fieldName = fieldName;
     }
 

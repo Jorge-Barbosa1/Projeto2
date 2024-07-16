@@ -86,18 +86,22 @@ public class UserMenuController implements Initializable {
         ObservableList<GameInfo> gameInfoList = FXCollections.observableArrayList();
 
         for (JogoEntity game : games) {
-            System.out.println("Jogo Encontrado: "+ game.getIdEquipa() + " " + game.getIdEquipa2() + " " + game.getHora() + " " + game.getIdCampo());
+            String team1Name = game.getEquipaByIdEquipa() != null ? game.getEquipaByIdEquipa().getNome() : "Unknown";
+            String team2Name = game.getEquipaByIdEquipa2() != null ? game.getEquipaByIdEquipa2().getNome() : "Unknown";
+            String fieldName = game.getCampoByIdCampo() != null ? game.getCampoByIdCampo().getNome() : "Unknown";
+
             GameInfo gameInfo = new GameInfo(
                     game.getIdJogo(),
-                    game.getIdEquipa(),
+                    team1Name,
                     game.getHora(),
-                    game.getIdEquipa2(),
-                    game.getIdCampo()
+                    team2Name,
+                    fieldName
             );
             gameInfoList.add(gameInfo);
         }
         return gameInfoList;
     }
+
 
     @FXML
     void viewFavorites(ActionEvent event){

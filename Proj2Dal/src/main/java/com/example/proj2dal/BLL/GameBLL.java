@@ -33,7 +33,6 @@ public class GameBLL {
     public static List<JogoEntity> listGames() {
         EntityManager em = DBConnection.getEntityManager();
         List<JogoEntity> games = em.createQuery("from JogoEntity", JogoEntity.class).getResultList();
-        System.out.println(games.size()); // Verifique o tamanho da lista no console
         return games;
     }
 

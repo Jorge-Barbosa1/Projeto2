@@ -21,6 +21,7 @@
           <TableColumn fx:id="playerColumn" prefWidth="75.0" text="Jogador" />
         </columns>
       </TableView>
-      <Button fx:id="addFavButton" layoutX="62.0" layoutY="187.0" mnemonicParsing="false" onAction="#goToAddFavPage" text="Adicionar Favorito" />
+      <Button fx:id="addFavButton" layoutX="76.0" layoutY="187.0" mnemonicParsing="false" onAction="#goToAddFavPage" text="Adicionar Favorito" />
+      <Button fx:id="deleteFavButton" layoutX="411.0" layoutY="187.0" mnemonicParsing="false" onAction="#deleteFavorite" prefHeight="25.0" prefWidth="113.0" text="Eliminar Favorito" />
    </children>
 </AnchorPane>

@@ -26,6 +26,8 @@ import java.util.ResourceBundle;
 public class FavoritesPageController implements Initializable {
     @FXML
     public Button addFavButton;
+    @FXML
+    public Button deleteFavButton;
     private Integer userId;
     @FXML
     Button goBackButton;
@@ -46,6 +48,19 @@ public class FavoritesPageController implements Initializable {
         List<FavoritosEntity> favoritesList = FavoritesBLL.listFavsByUser(userId);
         ObservableList<FavoritosEntity> observableFavoritesList = FXCollections.observableArrayList(favoritesList);
         favoritesTableView.setItems(observableFavoritesList);
+    }
+
+    @FXML
+    void deleteFavorite(ActionEvent event){
+        FavoritosEntity selectedFavorite = favoritesTableView.getSelectionModel().getSelectedItem();
+
+        if(selectedFavorite != null){
+            FavoritesBLL.deleteFavorite(selectedFavorite.getIdFavoritos());
+            favoritesTableView.getItems().remove(selectedFavorite);
+        } else {
+            showAlert(Alert.AlertType.ERROR, "Erro", "Selecione um favorito para remover.");
+
+        }
     }
 
     @FXML
@@ -75,5 +90,7 @@ public class FavoritesPageController implements Initializable {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+
 
 }
